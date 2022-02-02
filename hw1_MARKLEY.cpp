@@ -108,7 +108,7 @@ int main()
   if(bananas>0)
     cout <<endl<< "Banana? - " << bananas;
     
-  cout <<endl<<endl<< "You have $" <<money<< " remaining. Have a Schmealthy day!";  //outputs their money and exits the program
+  cout <<endl<<endl<< "You have $" <<money<< " remaining. Have a Schmealthy day!" <<endl;  //outputs their money and exits the program
   
   return 0;
 }
