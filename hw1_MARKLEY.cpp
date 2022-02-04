@@ -1,11 +1,10 @@
- 
 //Programmer: Logan Markley
 //Student ID: 12579435
 //MST Username: lcmkbc
 //Instructor Name: San Yeung
 //Section: 109
-//Date: 2/1/22
-//File: hw1_MARKLEY.cpp
+//Date: 2/4/22
+//File: hw1 MARKLEY.cpp
 //Purpose: Design a vending machine with C++ (HW 1)
 
 #include <iostream>
@@ -14,78 +13,92 @@ using namespace std;
 
 int main()
 {
-  float money=0.0;  //this variable represents the users money
-  int schmapples=0; //these 5 variables represent how many times the user bought each item
+  //---variable declaration---
+  float money=0.0;  //this variable represents the users money.
+  int schmapples=0; //these 5 variables represent how many times the user bought each item.
   int lightGrapes=0;
   int scentPizza=0;
   int heavyGrapes=0;
   int bananas=0;
+  
+  const int SCHMAPPLES_SLOT=1;   //these 5 constants represent the item's slot(location) in the vending machine.
+  const int LIGHTGRAPES_SLOT=2;  //use these to see which product the user selects.
+  const int SCENTPIZZA_SLOT=3;
+  const int HEAVYGRAPES_SLOT=4;
+  const int BANANAS_SLOT=5;
+  
+  const float SCHMAPPLES_PRICE=1.50;  //these 5 constants represent the item's price in the vending machine.
+  const float LIGHTGRAPES_PRICE=1.00; //use these for calculations with the user's money.
+  const float SCENTPIZZA_PRICE=0.50;
+  const float HEAVYGRAPES_PRICE=1.25;
+  const float BANANAS_PRICE=2.00;
     
   cout << fixed;    //these 2 lines of code are to output monetary values to 2 decimal places.
   cout << setprecision(2);
   
   
   
+  //---machine coding---
   cout << "This is the Schmending Machine! How much money do you have? $";
   cin >> money;
   
-  char contin = 'y';   //this variable is used to keep asking the user if they want more products
-  int select;     //this variable is used to see which item the user selected
+  char contin = 'y';   //this variable is used to keep asking the user if they want more products.
+  int select;          //this variable is used to see which item the user selected.
   while(contin == 'y')
   {
     cout << "Enter product selection (1-5): ";
     cin >> select;
     
-    if(select == 1) //if they choose schmapple
+    if(select == SCHMAPPLES_SLOT) //if they choose schmapple
     {
-      if(money>=1.50) //makes sure they have enough money
+      if(money>=SCHMAPPLES_PRICE) //makes sure they have enough money
       {
         schmapples++;
-        money=money-1.50;
+        money=money-SCHMAPPLES_PRICE;
         cout << "Purchased: Schmapple";
       }
       else  //does not purchase if they don't have enough money
         cout << "Not enough funds!";
     }
-    if(select == 2) //if they choose lightly used grape
+    if(select == LIGHTGRAPES_SLOT) //if they choose lightly used grape
     {
-      if(money>=1.00)
+      if(money>=LIGHTGRAPES_PRICE)
       {
         lightGrapes++;
-        money=money-1.00;
+        money=money-LIGHTGRAPES_PRICE;
         cout << "Purchased: Lightly Used Grape";
       }
       else
         cout << "Not enough funds!";
     }
-    if(select == 3) //if they choose scent of a pizza
+    if(select == SCENTPIZZA_SLOT) //if they choose scent of a pizza
     {
-      if(money>=0.50)
+      if(money>=SCENTPIZZA_PRICE)
       {
         scentPizza++;
-        money=money-0.50;
+        money=money-SCENTPIZZA_PRICE;
         cout << "Purchased: Scent of a Pizza";
       }
       else
         cout << "Not enough funds!";
     }
-    if(select == 4) //if they choose heavily used grape
+    if(select == HEAVYGRAPES_SLOT) //if they choose heavily used grape
     {
-      if(money>=1.25)
+      if(money>=HEAVYGRAPES_PRICE)
       {
         heavyGrapes++;
-        money=money-1.25;
+        money=money-HEAVYGRAPES_PRICE;
         cout << "Purchased: Heavily Used Grape";
       }
       else
         cout << "Not enough funds!";
     }
-    if(select == 5) //if they choose banana
+    if(select == BANANAS_SLOT) //if they choose banana
     {
-      if(money>=2.00)
+      if(money>=BANANAS_PRICE)
       {
         bananas++;
-        money=money-2.00;
+        money=money-BANANAS_PRICE;
         cout << "Purchased: Banana?";
       }
       else
@@ -108,7 +121,7 @@ int main()
   if(bananas>0)
     cout <<endl<< "Banana? - " << bananas;
     
-  cout <<endl<<endl<< "You have $" <<money<< " remaining. Have a Schmealthy day!" <<endl;  //outputs their money and exits the program
+  cout <<endl<<endl<< "You have $" <<money<< " remaining. Have a Schmealthy day!";  //outputs their money and exits the program
   
   return 0;
 }
