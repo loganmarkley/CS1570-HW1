@@ -20,35 +20,35 @@ int main()
   int scentPizza=0;
   int heavyGrapes=0;
   int bananas=0;
-  
+
   const int SCHMAPPLES_SLOT=1;   //these 5 constants represent the item's slot(location) in the vending machine.
   const int LIGHTGRAPES_SLOT=2;  //use these to see which product the user selects.
   const int SCENTPIZZA_SLOT=3;
   const int HEAVYGRAPES_SLOT=4;
   const int BANANAS_SLOT=5;
-  
+
   const float SCHMAPPLES_PRICE=1.50;  //these 5 constants represent the item's price in the vending machine.
   const float LIGHTGRAPES_PRICE=1.00; //use these for calculations with the user's money.
   const float SCENTPIZZA_PRICE=0.50;
   const float HEAVYGRAPES_PRICE=1.25;
   const float BANANAS_PRICE=2.00;
-    
+
   cout << fixed;    //these 2 lines of code are to output monetary values to 2 decimal places.
   cout << setprecision(2);
-  
-  
-  
+
+
+
   //---machine coding---
   cout << "This is the Schmending Machine! How much money do you have? $";
   cin >> money;
-  
+
   char contin = 'y';   //this variable is used to keep asking the user if they want more products.
   int select;          //this variable is used to see which item the user selected.
   while(contin == 'y')
   {
     cout << "Enter product selection (1-5): ";
     cin >> select;
-    
+
     if(select == SCHMAPPLES_SLOT) //if they choose schmapple
     {
       if(money>=SCHMAPPLES_PRICE) //makes sure they have enough money
@@ -104,11 +104,11 @@ int main()
       else
         cout << "Not enough funds!";
     }
-    
+
     cout <<endl<< "Keep purchasing? (y/n): ";   //asks if they want to continue purchasing and updates the contin variable to either stay in the while loop or exit
     cin >> contin;
   }
-  
+
   cout <<endl<< "You purchased:";  //this section of code is to output how many of each item the customer bought
   if(schmapples>0)
     cout <<endl<< "Schmapple - " << schmapples;
@@ -117,11 +117,11 @@ int main()
   if(scentPizza>0)
     cout <<endl<< "Scent of a Pizza - " << scentPizza;
   if(heavyGrapes>0)
-    cout <<endl<< "Heavily Used Grape - " << heavyGrapes;    
+    cout <<endl<< "Heavily Used Grape - " << heavyGrapes;
   if(bananas>0)
     cout <<endl<< "Banana? - " << bananas;
-    
+
   cout <<endl<<endl<< "You have $" <<money<< " remaining. Have a Schmealthy day!";  //outputs their money and exits the program
-  
+
   return 0;
 }
