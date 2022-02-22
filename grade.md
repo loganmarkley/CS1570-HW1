@@ -1,7 +1,7 @@
-Score: 99
+Score: 100
 
 Notes:
-- Allowed invalid inputs (-1)
+- Allowed invalid inputs
   - If you put a letter when picking a product, it breaks
 
 
